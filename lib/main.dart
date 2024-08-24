@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/contoller/destination_controller.dart';
 import 'package:travel_app/contoller/landing_controller.dart';
-import 'package:travel_app/view/schedule.dart';
+import 'package:travel_app/view/profile.dart';
+import 'package:travel_app/view/search.dart';
 
 void main() {
   runApp(const MainApp());
@@ -24,7 +25,7 @@ class MainApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Schedule(),
+        home: Profile(),
       ),
     );
   }
