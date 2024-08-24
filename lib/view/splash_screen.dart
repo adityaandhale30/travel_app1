@@ -30,7 +30,7 @@ class _SplashState extends State<Splash> {
             style: GoogleFonts.geologica(
               fontSize: 34,
               color: Colors.white,
-            )),
+            ),),
       ),
     );
   }
