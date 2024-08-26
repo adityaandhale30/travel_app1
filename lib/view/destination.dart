@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/view/view_destiantion.dart';
 
 class Destination extends StatelessWidget {
   const Destination({super.key});
@@ -20,6 +21,7 @@ class Destination extends StatelessWidget {
               height: screenHeight / 1.9,
               child: Image.asset(
                 "assets/images/home1.png",
+                //  Provider.of<DestinationController>(context).destinationList.destinationImage,
                 fit: BoxFit.cover,
               ),
             ),
@@ -88,7 +90,7 @@ class Destination extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,7 +176,7 @@ class Destination extends StatelessWidget {
                         return Container(
                           height: 48,
                           width: 48,
-                          margin: const EdgeInsets.only(top: 22, bottom: 16),
+                          margin: const EdgeInsets.only(top: 12, bottom: 12),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             color: Colors.yellow,
@@ -197,20 +199,26 @@ class Destination extends StatelessWidget {
                           fontSize: 13,
                           color: const Color.fromRGBO(125, 132, 141, 1)),
                     ),
-                    Container(
-                      height: screenHeight * 0.064,
-                      width: screenWidth,
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.only(top: 20),
-                      decoration: BoxDecoration(
-                          color: const Color.fromRGBO(13, 110, 253, 1),
-                          borderRadius: BorderRadius.circular(16)),
-                      child: Text(
-                        "Book Now",
-                        style: GoogleFonts.poppins(
-                            fontSize: screenWidth * 0.04,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromRGBO(255, 255, 255, 1)),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DestinationView()));
+                      },
+                      child: Container(
+                        height: screenHeight * 0.064,
+                        width: screenWidth,
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.only(top: 20),
+                        decoration: BoxDecoration(
+                            color: const Color.fromRGBO(13, 110, 253, 1),
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Text(
+                          "Book Now",
+                          style: GoogleFonts.poppins(
+                              fontSize: screenWidth * 0.04,
+                              fontWeight: FontWeight.w600,
+                              color: const Color.fromRGBO(255, 255, 255, 1)),
+                        ),
                       ),
                     ),
                   ],

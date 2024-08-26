@@ -1,6 +1,9 @@
 import 'package:avatar_stack/avatar_stack.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/contoller/destination_controller.dart';
+import 'package:travel_app/view/destination.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -19,10 +22,8 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-       
                 Container(
                   width: screenWidth * 0.32,
                   height: screenHeight * 0.05,
@@ -119,115 +120,140 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-           const  SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               height: screenHeight * 0.432,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 8,
+                itemCount: Provider.of<DestinationController>(context)
+                    .destinationList
+                    .length,
                 itemBuilder: (context, idx) {
-                  return Container(
-                    margin: const EdgeInsets.only(right: 16),
-                    padding: const EdgeInsets.only(top: 16),
-                    height: screenHeight * 0.432,
-                    width: screenWidth * 0.66,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: const Color.fromRGBO(255, 255, 255, 1),
-                    ),
-                    child: Column(
-                      children: [
-                        Stack(
-                          alignment: Alignment.topRight,
-                          children: [
-                            Image.asset("assets/images/home1.png"),
-                            Container(
-                              height: 34,
-                              width: 34,
-                              margin: const EdgeInsets.only(top: 10, right: 10),
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color.fromRGBO(27, 30, 40, 0.3),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Destination()));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 16),
+                      padding: const EdgeInsets.only(top: 16),
+                      height: screenHeight * 0.432,
+                      width: screenWidth * 0.66,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                      ),
+                      child: Column(
+                        children: [
+                          Stack(
+                            alignment: Alignment.topRight,
+                            children: [
+                              Image.asset(
+                                Provider.of<DestinationController>(context)
+                                    .destinationList[idx]
+                                    .destinationImage,
                               ),
-                              child: Icon(
-                                idx % 2 == 0
-                                    ? Icons.bookmark_border_outlined
-                                    : Icons.bookmark_outlined,
-                                color: Colors.white,
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  height: 34,
+                                  width: 34,
+                                  margin:
+                                      const EdgeInsets.only(top: 10, right: 10),
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color.fromRGBO(27, 30, 40, 0.3),
+                                  ),
+                                  child: Icon(
+                                    Provider.of<DestinationController>(context)
+                                                .destinationList[idx]
+                                                .isDestinationSaved ==
+                                            false
+                                        ? Icons.bookmark_border_outlined
+                                        : Icons.bookmark_outlined,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16, right: 16, top: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  Provider.of<DestinationController>(context)
+                                      .destinationList[idx]
+                                      .destinationName,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: screenWidth * 0.04,
+                                    fontWeight: FontWeight.w500,
+                                    color: const Color.fromRGBO(27, 30, 40, 1),
+                                  ),
+                                ),
+                                const Spacer(),
+                                const Icon(
+                                  Icons.star,
+                                  color: Color.fromRGBO(255, 211, 54, 1),
+                                ),
+                                Text(
+                                  Provider.of<DestinationController>(context)
+                                      .destinationList[idx]
+                                      .rating
+                                      .toString(),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: screenWidth * 0.038,
+                                    color: const Color.fromRGBO(27, 30, 40, 1),
+                                  ),
+                                )
+                              ],
                             ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, right: 16, top: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                "Niladri Reservoir",
-                                style: GoogleFonts.poppins(
-                                  fontSize: screenWidth * 0.04,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color.fromRGBO(27, 30, 40, 1),
-                                ),
-                              ),
-                              const Spacer(),
-                              const Icon(
-                                Icons.star,
-                                color: Color.fromRGBO(255, 211, 54, 1),
-                              ),
-                              Text(
-                                "4.7",
-                                style: GoogleFonts.poppins(
-                                  fontSize: screenWidth * 0.038,
-                                  color: const Color.fromRGBO(27, 30, 40, 1),
-                                ),
-                              )
-                            ],
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 8,
-                            right: 16,
-                          ),
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.location_pin,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                "Tekergat, Sunamgnj",
-                                style: GoogleFonts.poppins(
-                                  fontSize: screenWidth * 0.038,
-                                  color: const Color.fromRGBO(125, 132, 141, 1),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                              right: 16,
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_pin,
+                                  color: Colors.grey,
                                 ),
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                height: 30,
-                                width: 30,
-                                child: AvatarStack(
-                                    height: 25,
-                                    width: 25,
-                                    avatars: [
-                                      // AssetImage("assets/images/avatar1.png"),
-                                      // // AssetImage("assets/images/avatar2.png"),
-                                      // AssetImage("assets/images/avatar3.png"),
+                                Text(
+                                  "Tekergat, Sunamgnj",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: screenWidth * 0.038,
+                                    color:
+                                        const Color.fromRGBO(125, 132, 141, 1),
+                                  ),
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  height: 30,
+                                  width: 30,
+                                  child: AvatarStack(
+                                      height: 25,
+                                      width: 25,
+                                      avatars: [
+                                        // AssetImage("assets/images/avatar1.png"),
+                                        // // AssetImage("assets/images/avatar2.png"),
+                                        // AssetImage("assets/images/avatar3.png"),
 
-                                      for (var n = 0; n < 3; n++)
-                                        NetworkImage(
-                                            'assets/images/avatar$n.png'),
-                                    ]),
-                              )
-                            ],
+                                        for (var n = 0; n < 3; n++)
+                                          NetworkImage(
+                                              'assets/images/avatar$n.png'),
+                                      ]),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },

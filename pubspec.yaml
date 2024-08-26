@@ -9,6 +9,7 @@ environment:
 dependencies:
   avatar_stack: ^1.2.0
   curved_labeled_navigation_bar: ^2.0.2
+  firebase_auth: ^4.16.0
   flutter:
     sdk: flutter
   flutter_calendar_week: ^3.0.2

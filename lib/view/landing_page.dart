@@ -108,6 +108,7 @@ class _LandingPage1State extends State<LandingPage1> {
                         .nextLandingPage(screenIndex);
                     screenIndex++;
                     if (screenIndex == 3) {
+                      screenIndex = 0;
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const Home()));
                     }
