@@ -1,11 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/contoller/destination_controller.dart';
 import 'package:travel_app/model/destination_model.dart';
 import 'package:travel_app/view/Destination/view_destiantion.dart';
+import 'package:travel_app/view/Search/search.dart';
 
 class Destination extends StatelessWidget {
   DestinationModel destinationCart;
@@ -72,12 +71,14 @@ class Destination extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Color.fromRGBO(27, 30, 40, 0.3),
                       ),
-                      child: Consumer(builder: (context,provider,widget)=> Icon(
-                        destinationCart.isDestinationSaved == false
-                            ? Icons.bookmark_border_outlined
-                            : Icons.bookmark_outlined,
-                        color: Colors.white,
-                      ),),
+                      child: Consumer(
+                        builder: (context, provider, widget) => Icon(
+                          destinationCart.isDestinationSaved == false
+                              ? Icons.bookmark_border_outlined
+                              : Icons.bookmark_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -192,15 +193,47 @@ class Destination extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(5, (idx) {
-                        return Container(
-                          height: 48,
-                          width: 48,
-                          margin: const EdgeInsets.only(top: 12, bottom: 12),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.yellow,
-                          ),
-                        );
+                        return idx != 4
+                            ? Container(
+                                height: 48,
+                                width: 48,
+                                margin:
+                                    const EdgeInsets.only(top: 12, bottom: 12),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child:
+                                    Image.asset("assets/images/dest$idx.png"),
+                              )
+                            : GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => const Search()));
+                                },
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Container(
+                                      height: 48,
+                                      width: 48,
+                                      margin: const EdgeInsets.only(
+                                          top: 12, bottom: 12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Image.asset(
+                                          "assets/images/dest$idx.png"),
+                                    ),
+                                    const Text(
+                                      "+16",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                              );
                       }),
                     ),
                     Text(

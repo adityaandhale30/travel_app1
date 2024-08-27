@@ -5,6 +5,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/contoller/destination_controller.dart';
 import 'package:travel_app/view/Destination/destination.dart';
+import 'package:travel_app/view/Search/search.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -44,7 +45,7 @@ class Home extends StatelessWidget {
                         decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color.fromRGBO(255, 234, 223, 1)),
-                        // child: Image.asset("assets/images/account.png"),
+                        child: Image.asset("assets/images/leonardo.png"),
                       ),
                       Text(
                         "Leonardo",
@@ -57,14 +58,17 @@ class Home extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  width: screenWidth * 0.11,
-                  height: screenHeight * 0.05,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    width: screenWidth * 0.11,
+                    height: screenHeight * 0.05,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                    ),
+                    child: const Icon(Icons.notifications_active_outlined),
                   ),
-                  child: const Icon(Icons.notifications_active_outlined),
                 ),
               ],
             ),
@@ -110,7 +114,10 @@ class Home extends StatelessWidget {
                       color: const Color.fromRGBO(27, 30, 40, 1),
                     )),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Search()));
+                  },
                   child: Text(
                     "View all",
                     style: GoogleFonts.poppins(
@@ -146,12 +153,6 @@ class Home extends StatelessWidget {
                         pageTransitionAnimation:
                             PageTransitionAnimation.cupertino,
                       );
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //     builder: (context) => Destination(
-                      //           destinationCart:
-                      //               Provider.of<DestinationController>(context)
-                      //                   .destinationList[idx],
-                      //         )));
                     },
                     child: Container(
                       margin: const EdgeInsets.only(right: 16),

@@ -8,7 +8,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    //double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
       appBar: AppBar(
@@ -33,12 +33,13 @@ class Profile extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: Color.fromRGBO(255, 234, 223, 1),
               ),
+              child: Image.asset("assets/images/leonardo.png"),
             ),
             Text(
               "Leonardo",
               style: GoogleFonts.poppins(
                 fontSize: screenWidth * 0.06,
-                color: Color.fromRGBO(27, 30, 40, 1),
+                color: const Color.fromRGBO(27, 30, 40, 1),
               ),
             ),
             Text(
@@ -192,10 +193,6 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   height: 100,
-      //   color: Colors.red,
-      // ),
     );
   }
 }

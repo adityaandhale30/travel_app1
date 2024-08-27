@@ -8,8 +8,10 @@ class ProfileButton {
 }
 
 List<ProfileButton> profileButtonList = [
-  ProfileButton(buttonname: "Bookmarked", buttonIcon: Icons.abc),
-  ProfileButton(buttonname: "Previous Trips", buttonIcon: Icons.airport_shuttle_sharp),
+  ProfileButton(
+      buttonname: "Bookmarked", buttonIcon: Icons.bookmark_outline_outlined),
+  ProfileButton(
+      buttonname: "Previous Trips", buttonIcon: Icons.airport_shuttle_sharp),
   ProfileButton(buttonname: "Settings", buttonIcon: Icons.settings),
   ProfileButton(buttonname: "Version", buttonIcon: Icons.monochrome_photos),
 ];
