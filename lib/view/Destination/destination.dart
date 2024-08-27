@@ -1,9 +1,15 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travel_app/view/view_destiantion.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_app/contoller/destination_controller.dart';
+import 'package:travel_app/model/destination_model.dart';
+import 'package:travel_app/view/Destination/view_destiantion.dart';
 
 class Destination extends StatelessWidget {
-  const Destination({super.key});
+  DestinationModel destinationCart;
+  Destination({super.key, required this.destinationCart});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,7 @@ class Destination extends StatelessWidget {
               width: screenWidth,
               height: screenHeight / 1.9,
               child: Image.asset(
-                "assets/images/home1.png",
+                destinationCart.destinationImage,
                 //  Provider.of<DestinationController>(context).destinationList.destinationImage,
                 fit: BoxFit.cover,
               ),
@@ -30,17 +36,22 @@ class Destination extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 44,
-                    width: 44,
-                    margin: const EdgeInsets.only(top: 10, left: 16),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(27, 30, 40, 0.3),
-                    ),
-                    child: const Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      height: 44,
+                      width: 44,
+                      margin: const EdgeInsets.only(top: 10, left: 16),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromRGBO(27, 30, 40, 0.3),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new_outlined,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Text(
@@ -48,17 +59,25 @@ class Destination extends StatelessWidget {
                     style:
                         GoogleFonts.poppins(color: Colors.white, fontSize: 24),
                   ),
-                  Container(
-                    height: 44,
-                    width: 44,
-                    margin: const EdgeInsets.only(top: 10, right: 16),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(27, 30, 40, 0.3),
-                    ),
-                    child: const Icon(
-                      Icons.bookmark_outlined,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      Provider.of<DestinationController>(context, listen: false)
+                          .destinationSaved(0);
+                    },
+                    child: Container(
+                      height: 44,
+                      width: 44,
+                      margin: const EdgeInsets.only(top: 10, right: 16),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromRGBO(27, 30, 40, 0.3),
+                      ),
+                      child: Consumer(builder: (context,provider,widget)=> Icon(
+                        destinationCart.isDestinationSaved == false
+                            ? Icons.bookmark_border_outlined
+                            : Icons.bookmark_outlined,
+                        color: Colors.white,
+                      ),),
                     ),
                   ),
                 ],
@@ -99,7 +118,7 @@ class Destination extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Niladri Reservoir",
+                              destinationCart.destinationName,
                               style: GoogleFonts.poppins(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,
@@ -148,7 +167,7 @@ class Destination extends StatelessWidget {
                           color: Colors.yellow,
                         ),
                         Text(
-                          "4.7",
+                          destinationCart.rating.toString(),
                           style: GoogleFonts.poppins(
                               fontSize: 15,
                               color: const Color.fromRGBO(27, 30, 40, 1)),
@@ -160,10 +179,10 @@ class Destination extends StatelessWidget {
                               color: const Color.fromRGBO(125, 132, 141, 1)),
                         ),
                         const SizedBox(
-                          width: 60,
+                          width: 40,
                         ),
                         Text(
-                          "59/person",
+                          "${destinationCart.charges}/person",
                           style: GoogleFonts.poppins(
                               fontSize: 15,
                               color: const Color.fromRGBO(125, 132, 141, 1)),
@@ -202,7 +221,9 @@ class Destination extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const DestinationView()));
+                            builder: (context) => DestinationView(
+                                  destinationCart: destinationCart,
+                                )));
                       },
                       child: Container(
                         height: screenHeight * 0.064,

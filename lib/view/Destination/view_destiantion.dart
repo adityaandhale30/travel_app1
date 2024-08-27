@@ -1,9 +1,11 @@
 import 'package:avatar_stack/avatar_stack.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/model/destination_model.dart';
 
 class DestinationView extends StatelessWidget {
-  const DestinationView({super.key});
+  DestinationModel destinationCart;
+  DestinationView({super.key, required this.destinationCart});
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +27,22 @@ class DestinationView extends StatelessWidget {
             padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
             child: Row(
               children: [
-                Container(
-                  height: 44,
-                  width: 44,
-                  margin: const EdgeInsets.only(right: 120),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(27, 30, 40, 0.3),
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Container(
+                    height: 44,
+                    width: 44,
+                    margin: const EdgeInsets.only(right: 120),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(27, 30, 40, 0.3),
+                    ),
+                    child: const Icon(
+                      Icons.arrow_back_ios_new_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 Text(
@@ -178,7 +185,7 @@ class DestinationView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "Niladri Reservoir",
+                        destinationCart.destinationName,
                         style: GoogleFonts.poppins(
                             fontSize: screenWidth * 0.04, //16
                             fontWeight: FontWeight.w600,
@@ -190,7 +197,7 @@ class DestinationView extends StatelessWidget {
                         color: Color.fromRGBO(255, 211, 54, 1),
                       ),
                       Text(
-                        "4.7",
+                        destinationCart.rating.toString(),
                         style: GoogleFonts.poppins(
                           fontSize: screenWidth * 0.038,
                           color: Colors.white,

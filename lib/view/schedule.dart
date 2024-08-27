@@ -35,7 +35,7 @@ class Schedule extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
         child: Column(
           children: [
             Container(
@@ -101,8 +101,11 @@ class Schedule extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 8,
+            ),
             Expanded(
-              child: ListView.builder(itemBuilder: (context, i) {
+              child: ListView.builder(itemCount: 7,itemBuilder: (context, i) {
                 return Container(
                   height: 100,
                   width: screenWidth,

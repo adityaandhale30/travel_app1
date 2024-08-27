@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/contoller/profile_button_list.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -9,7 +10,9 @@ class Profile extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
         title: Text(
           "Profile",
           style: GoogleFonts.poppins(
@@ -137,7 +140,7 @@ class Profile extends StatelessWidget {
             Expanded(
               child: Container(
                 margin: const EdgeInsets.only(top: 32, bottom: 16),
-                padding: const EdgeInsets.only(top: 26, left: 16),
+                padding: const EdgeInsets.only(top: 0, left: 16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: Colors.white),
@@ -146,19 +149,19 @@ class Profile extends StatelessWidget {
                     return Column(
                       children: [
                         const SizedBox(
-                          height: 8,
+                          height: 14,
                         ),
                         Row(
                           children: [
-                            const Icon(
-                              Icons.bookmark_outline_outlined,
-                              color: Color.fromRGBO(125, 132, 141, 1),
+                            Icon(
+                              profileButtonList[idx].buttonIcon,
+                              color: const Color.fromRGBO(125, 132, 141, 1),
                             ),
                             const SizedBox(
                               width: 16,
                             ),
                             Text(
-                              "Bookmarked",
+                              profileButtonList[idx].buttonname,
                               style: GoogleFonts.poppins(
                                 fontSize: screenWidth * 0.045,
                                 fontWeight: FontWeight.w500,
@@ -175,7 +178,7 @@ class Profile extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(
-                          height: 8,
+                          height: 14,
                         ),
                         const Divider(
                           color: Color.fromRGBO(247, 247, 249, 1),
@@ -189,10 +192,10 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 100,
-        color: Colors.red,
-      ),
+      // bottomNavigationBar: Container(
+      //   height: 100,
+      //   color: Colors.red,
+      // ),
     );
   }
 }

@@ -1,9 +1,10 @@
 import 'package:avatar_stack/avatar_stack.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/contoller/destination_controller.dart';
-import 'package:travel_app/view/destination.dart';
+import 'package:travel_app/view/Destination/destination.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -133,8 +134,24 @@ class Home extends StatelessWidget {
                 itemBuilder: (context, idx) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Destination()));
+                      PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: Destination(
+                          destinationCart: Provider.of<DestinationController>(
+                                  context,
+                                  listen: false)
+                              .destinationList[idx],
+                        ),
+                        withNavBar: false, // OPTIONAL VALUE. True by default.
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      );
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //     builder: (context) => Destination(
+                      //           destinationCart:
+                      //               Provider.of<DestinationController>(context)
+                      //                   .destinationList[idx],
+                      //         )));
                     },
                     child: Container(
                       margin: const EdgeInsets.only(right: 16),
@@ -156,7 +173,11 @@ class Home extends StatelessWidget {
                                     .destinationImage,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Provider.of<DestinationController>(context,
+                                          listen: false)
+                                      .destinationSaved(idx);
+                                },
                                 child: Container(
                                   height: 34,
                                   width: 34,
@@ -166,14 +187,17 @@ class Home extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: Color.fromRGBO(27, 30, 40, 0.3),
                                   ),
-                                  child: Icon(
-                                    Provider.of<DestinationController>(context)
-                                                .destinationList[idx]
-                                                .isDestinationSaved ==
-                                            false
-                                        ? Icons.bookmark_border_outlined
-                                        : Icons.bookmark_outlined,
-                                    color: Colors.white,
+                                  child: Consumer(
+                                    builder: (context, value, child) => Icon(
+                                      Provider.of<DestinationController>(
+                                                      context)
+                                                  .destinationList[idx]
+                                                  .isDestinationSaved ==
+                                              false
+                                          ? Icons.bookmark_border_outlined
+                                          : Icons.bookmark_outlined,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -262,7 +286,8 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: ,
+
+      //  bottomNavigationBar:  PersistantBottomNavBarCustom(),
     );
   }
 }

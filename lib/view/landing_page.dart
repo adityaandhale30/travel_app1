@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:travel_app/contoller/landing_controller.dart';
-import 'package:travel_app/view/home.dart';
+import 'package:travel_app/view/navbar.dart';
 
 class LandingPage1 extends StatefulWidget {
   const LandingPage1({super.key});
@@ -109,8 +109,12 @@ class _LandingPage1State extends State<LandingPage1> {
                     screenIndex++;
                     if (screenIndex == 3) {
                       screenIndex = 0;
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const Home()));
+
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => PersistantBottomNavBarCustom(),
+                        ),
+                      );
                     }
                   },
                   child: Container(
