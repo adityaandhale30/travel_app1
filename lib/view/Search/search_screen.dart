@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Search/Widgets/GridviewCustom.dart';
-import 'package:travel_app/view/Home/home.dart';
+import 'package:travel_app/view/Home/home_screen.dart';
 
-class Search extends StatelessWidget {
-  const Search({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Search extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const Home()));
+                  .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
             },
             child: Text(
               "Cancel",

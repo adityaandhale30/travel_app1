@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:travel_app/view/Home/home.dart';
-import 'package:travel_app/view/Profile/profile.dart';
-import 'package:travel_app/view/Schedule/schedule.dart';
-import 'package:travel_app/view/Search/search.dart';
+import 'package:travel_app/view/Home/home_screen.dart';
+import 'package:travel_app/view/Profile/profile_screeb.dart';
+import 'package:travel_app/view/Schedule/schedule_screen.dart';
+
+import 'package:travel_app/view/Search/search_screen.dart';
 
 class PersistantBottomNavBarCustom extends StatelessWidget {
   PersistantBottomNavBarCustom({super.key});
@@ -11,11 +12,11 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
       PersistentTabController(initialIndex: 0);
   List<Widget> _buildScreens() {
     return [
-      const Home(),
-      const Schedule(),
-      const Search(),
+      const HomeScreen(),
+      const ScheduleScreen(),
+      const SearchScreen(),
       Container(),
-      const Profile(),
+      const ProfileScreen(),
     ];
   }
 
@@ -45,7 +46,7 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
           icon: Container(
             height: 50,
             width: 50,
-            decoration:const BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color.fromRGBO(13, 110, 253, 1),
               shape: BoxShape.circle,
             ),

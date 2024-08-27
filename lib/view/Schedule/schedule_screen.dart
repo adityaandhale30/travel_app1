@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Schedule/Widgets/calender.dart';
 
-class Schedule extends StatelessWidget {
-  const Schedule({super.key});
+class ScheduleScreen extends StatelessWidget {
+  const ScheduleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Schedule extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
         title: Text(
-          "Schedule",
+          "ScheduleScreen",
           style: GoogleFonts.poppins(
             fontSize: 18,
             fontWeight: FontWeight.w500,

@@ -16,10 +16,12 @@
 //   }
 // }
 
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Login/firebase_methods.dart';
-import 'package:travel_app/view/Home/home.dart';
+import 'package:travel_app/view/Home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -177,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 isLoading = false;
               });
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => const Home()));
+                  context, MaterialPageRoute(builder: (_) => const HomeScreen()));
             } else {
               print("Login Failed");
               setState(() {

@@ -4,9 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:travel_app/contoller/destination_controller.dart';
 import 'package:travel_app/model/destination_model.dart';
 import 'package:travel_app/view/Destination/Widgets/details_container.dart';
-import 'package:travel_app/view/Destination/view_destiantion.dart';
-import 'package:travel_app/view/Search/search.dart';
 
+// ignore: must_be_immutable
 class Destination extends StatelessWidget {
   DestinationModel destinationCart;
   Destination({super.key, required this.destinationCart});
@@ -27,7 +26,6 @@ class Destination extends StatelessWidget {
               height: screenHeight / 1.9,
               child: Image.asset(
                 destinationCart.destinationImage,
-                //  Provider.of<DestinationController>(context).destinationList.destinationImage,
                 fit: BoxFit.cover,
               ),
             ),
@@ -85,7 +83,7 @@ class Destination extends StatelessWidget {
                 ],
               ),
             ),
-           DetailsContainer(destinationCart: destinationCart),
+            DetailsContainer(destinationCart: destinationCart),
           ],
         ),
       ),

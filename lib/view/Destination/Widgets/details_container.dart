@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/model/destination_model.dart';
 import 'package:travel_app/view/Destination/view_destiantion.dart';
-import 'package:travel_app/view/Search/search.dart';
+import 'package:travel_app/view/Search/search_screen.dart';
 
 // ignore: must_be_immutable
 class DetailsContainer extends StatelessWidget {
@@ -139,7 +139,7 @@ class DetailsContainer extends StatelessWidget {
                             : GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => const Search()));
+                                      builder: (context) => const SearchScreen()));
                                 },
                                 child: Stack(
                                   alignment: Alignment.center,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Home/Widgets/listview_home.dart';
-import 'package:travel_app/view/Search/search.dart';
+import 'package:travel_app/view/Search/search_screen.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +110,7 @@ class Home extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Search()));
+                        builder: (context) => const SearchScreen()));
                   },
                   child: Text(
                     "View all",

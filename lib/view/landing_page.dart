@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:travel_app/contoller/landing_controller.dart';
-import 'package:travel_app/view/navbar.dart';
+import 'package:travel_app/view/persistantBottomNavBarCustom.dart';
 
 class LandingPage1 extends StatefulWidget {
   const LandingPage1({super.key});
