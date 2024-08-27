@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:travel_app/view/home.dart';
-import 'package:travel_app/view/profile.dart';
-import 'package:travel_app/view/schedule.dart';
+import 'package:travel_app/view/Home/home.dart';
+import 'package:travel_app/view/Profile/profile.dart';
+import 'package:travel_app/view/Schedule/schedule.dart';
 import 'package:travel_app/view/Search/search.dart';
 
 class PersistantBottomNavBarCustom extends StatelessWidget {
@@ -33,7 +33,6 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
       navBarStyle: NavBarStyle.style6,
       navBarHeight: 96,
       controller: _controller,
-      // onItemSelected: (value) {},
       context,
       items: [
         PersistentBottomNavBarItem(

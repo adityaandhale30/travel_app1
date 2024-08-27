@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travel_app/view/Search/Gridview.dart';
-import 'package:travel_app/view/home.dart';
+import 'package:travel_app/view/Search/Widgets/GridviewCustom.dart';
+import 'package:travel_app/view/Home/home.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -9,7 +9,6 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
       appBar: AppBar(

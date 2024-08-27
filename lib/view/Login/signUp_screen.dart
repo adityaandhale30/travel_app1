@@ -322,7 +322,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Login/firebase_methods.dart';
-import 'package:travel_app/view/home.dart';
+import 'package:travel_app/view/Home/home.dart';
 
 
 
