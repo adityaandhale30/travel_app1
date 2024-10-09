@@ -19,7 +19,13 @@ List<DestinationModel> dl = [
       rating: 4.7,
       charges: 265),
   DestinationModel(
-      destinationImage: "assets/images/home2.png",
+      destinationImage: "assets/images/home1.png",
+      isDestinationSaved: false,
+      destinationName: "Darma Reservoir",
+      rating: 4.3,
+      charges: 225),
+  DestinationModel(
+      destinationImage: "assets/images/home1.png",
       isDestinationSaved: false,
       destinationName: "Darma Reservoir",
       rating: 4.3,
