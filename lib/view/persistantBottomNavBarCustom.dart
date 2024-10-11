@@ -3,7 +3,6 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:travel_app/view/Home/home_screen.dart';
 import 'package:travel_app/view/Profile/profile_screeb.dart';
 import 'package:travel_app/view/Schedule/schedule_screen.dart';
-
 import 'package:travel_app/view/Search/search_screen.dart';
 
 class PersistantBottomNavBarCustom extends StatelessWidget {
@@ -37,10 +36,20 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
       context,
       items: [
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
+          icon: const Icon(
+            Icons.home,
+            color: Color.fromRGBO(125, 132, 141, 1),
+            size: 30,
+          ),
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.calendar_month_outlined),
+          icon: const Icon(
+            Icons.calendar_month_outlined,
+            color: Color.fromRGBO(125, 132, 141, 1),
+            size: 30,
+          ),
+          activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
+          activeColorSecondary: Color.fromRGBO(13, 110, 253, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Container(
@@ -57,10 +66,18 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
           ),
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.chat_bubble_outline_outlined),
+          icon: const Icon(
+            Icons.chat_bubble_outline_outlined,
+            color: Color.fromRGBO(125, 132, 141, 1),
+            size: 25,
+          ),
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.person_2_outlined),
+          icon: const Icon(
+            Icons.person_2_outlined,
+            color: Color.fromRGBO(125, 132, 141, 1),
+            size: 30,
+          ),
         ),
       ],
       screens: _buildScreens(),

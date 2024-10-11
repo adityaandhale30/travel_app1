@@ -24,9 +24,12 @@ class Destination extends StatelessWidget {
             SizedBox(
               width: screenWidth,
               height: screenHeight / 1.9,
-              child: Image.asset(
-                destinationCart.destinationImage,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: 0,
+                child: Image.asset(
+                  destinationCart.destinationImage,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
