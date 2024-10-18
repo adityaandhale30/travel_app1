@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/view/Schedule/Widgets/calender.dart';
 
@@ -108,6 +109,7 @@ class ScheduleScreen extends StatelessWidget {
                                     Icons.calendar_month,
                                     color: Color.fromRGBO(125, 132, 141, 1),
                                   ),
+                                  const Gap(5),
                                   Text(
                                     "26 January 2022",
                                     style: GoogleFonts.poppins(

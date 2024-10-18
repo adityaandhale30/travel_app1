@@ -7,42 +7,43 @@ class CalenderCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
+      timeLineProps: const EasyTimeLineProps(hPadding: 30),
+      dayProps: const EasyDayProps(height: 80),
+      headerProps: const EasyHeaderProps(
+        monthPickerType: MonthPickerType.switcher,
+      ),
       initialDate: DateTime.now(),
       itemBuilder:
           (context, dayNumber, dayName, monthName, fullDate, isSelected) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 8),
-          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 44,
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: isSelected
                 ? Colors.blue
                 : Colors.grey[200], // Change color if selected
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Container(
-            color: Colors.red,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  dayName[0], // e.g., Mon, Tue
-                  style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+          child: Column(
+            children: [
+              Text(
+                dayName[0], // e.g., Mon, Tue
+                style: TextStyle(
+                  color: isSelected ? Colors.white : Colors.black,
+                  fontSize: 15,
                 ),
-                SizedBox(height: 5),
-                Text(
-                  dayNumber, // e.g., 22
-                  style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                dayNumber,
+                style: TextStyle(
+                  color: isSelected ? Colors.white : Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

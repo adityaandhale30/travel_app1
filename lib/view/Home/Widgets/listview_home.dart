@@ -139,12 +139,12 @@ class ListViewHome extends StatelessWidget {
                         SizedBox(
                           height: 30,
                           width: 30,
-                          child: AvatarStack(height: 25, width: 25, avatars: [
+                          child: AvatarStack(height: 25, width: 100, avatars: [
                             // AssetImage("assets/images/avatar1.png"),
                             // // AssetImage("assets/images/avatar2.png"),
                             // AssetImage("assets/images/avatar3.png"),
 
-                            for (var n = 1; n < 2; n++)
+                            for (var n = 1; n < 4; n++)
                               AssetImage('assets/images/avatar$n.png'),
                           ]),
                         )
