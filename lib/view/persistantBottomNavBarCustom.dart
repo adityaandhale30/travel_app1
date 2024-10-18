@@ -49,7 +49,7 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
             size: 30,
           ),
           activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
-          activeColorSecondary: Color.fromRGBO(13, 110, 253, 1),
+          activeColorSecondary:const  Color.fromRGBO(13, 110, 253, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Container(
