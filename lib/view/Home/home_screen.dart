@@ -57,11 +57,16 @@ class HomeScreen extends StatelessWidget {
                   child: Container(
                     width: screenWidth * 0.11,
                     height: screenHeight * 0.05,
+                    alignment: Alignment.center,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color.fromRGBO(255, 255, 255, 1),
                     ),
-                    child: const Icon(Icons.notifications_active_outlined),
+                    child: const Badge(
+                        backgroundColor: Color.fromRGBO(255, 112, 41, 1),
+                        alignment: Alignment.topRight,
+              
+                        child: Icon(Icons.notifications_outlined)),
                   ),
                 ),
               ],

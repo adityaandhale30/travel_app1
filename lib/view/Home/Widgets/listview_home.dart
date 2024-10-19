@@ -1,5 +1,6 @@
 import 'package:avatar_stack/avatar_stack.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
@@ -50,14 +51,17 @@ class ListViewHome extends StatelessWidget {
                     children: [
                       Hero(
                         tag: idx,
-                        child: SizedBox(
-                          height: 286,
+                        child: Container(
+                          height: 295,
                           width: 240,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10)),
                           child: Image.asset(
                             Provider.of<DestinationController>(context)
                                 .destinationList[idx]
                                 .destinationImage,
-                            fit: BoxFit.contain,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -141,15 +145,13 @@ class ListViewHome extends StatelessWidget {
                             color: const Color.fromRGBO(125, 132, 141, 1),
                           ),
                         ),
-                        const Spacer(),
+                        const Gap(3),
                         SizedBox(
                           height: 30,
-                          width: 30,
-                          child: AvatarStack(height: 25, width: 100, avatars: [
-                            // AssetImage("assets/images/avatar1.png"),
-                            // // AssetImage("assets/images/avatar2.png"),
-                            // AssetImage("assets/images/avatar3.png"),
-
+                          width: 59,
+                          child: AvatarStack(
+                           // settings: ,
+                            height: 25, width: 30, avatars: [
                             for (var n = 1; n < 4; n++)
                               AssetImage('assets/images/avatar$n.png'),
                           ]),
