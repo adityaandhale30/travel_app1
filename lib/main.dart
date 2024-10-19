@@ -4,7 +4,6 @@ import 'package:travel_app/contoller/destination_controller.dart';
 import 'package:travel_app/contoller/landing_controller.dart';
 import 'package:travel_app/view/splash_screen.dart';
 
-
 void main() {
   runApp(const MainApp());
 }

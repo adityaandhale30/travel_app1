@@ -13,13 +13,13 @@ class DestinationController extends ChangeNotifier {
 
 List<DestinationModel> dl = [
   DestinationModel(
-      destinationImage: "assets/images/home1.png",
+      destinationImage: "assets/images/home0.png",
       isDestinationSaved: false,
       destinationName: "Niladri Reservoir",
       rating: 4.7,
       charges: 265),
   DestinationModel(
-      destinationImage: "assets/images/home1.png",
+      destinationImage: "assets/images/home2.png",
       isDestinationSaved: false,
       destinationName: "Darma Reservoir",
       rating: 4.3,

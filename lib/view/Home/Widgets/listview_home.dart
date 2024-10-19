@@ -38,6 +38,7 @@ class ListViewHome extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16),
               height: screenHeight * 0.432,
               width: screenWidth * 0.66,
+              clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(24),
                 color: const Color.fromRGBO(255, 255, 255, 1),
@@ -49,10 +50,15 @@ class ListViewHome extends StatelessWidget {
                     children: [
                       Hero(
                         tag: idx,
-                        child: Image.asset(
-                          Provider.of<DestinationController>(context)
-                              .destinationList[idx]
-                              .destinationImage,
+                        child: SizedBox(
+                          height: 286,
+                          width: 240,
+                          child: Image.asset(
+                            Provider.of<DestinationController>(context)
+                                .destinationList[idx]
+                                .destinationImage,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                       GestureDetector(

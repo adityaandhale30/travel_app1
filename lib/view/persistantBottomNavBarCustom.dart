@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:travel_app/view/Home/home_screen.dart';
@@ -21,6 +22,10 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    /// PersistentTabView used here for which we can give style and  activeColorPrimary: inactiveColorPrimary : will work if we didnt give  color : 
+
     return PersistentTabView(
       backgroundColor: Colors.white,
       decoration: const NavBarDecoration(
@@ -38,18 +43,18 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
         PersistentBottomNavBarItem(
           icon: const Icon(
             Icons.home,
-            color: Color.fromRGBO(125, 132, 141, 1),
             size: 30,
           ),
+          activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
+          inactiveColorPrimary: const Color.fromRGBO(125, 132, 141, 1),
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(
             Icons.calendar_month_outlined,
-            color: Color.fromRGBO(125, 132, 141, 1),
             size: 30,
           ),
           activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
-          activeColorSecondary:const  Color.fromRGBO(13, 110, 253, 1),
+          inactiveColorPrimary: const Color.fromRGBO(125, 132, 141, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Container(
@@ -68,16 +73,18 @@ class PersistantBottomNavBarCustom extends StatelessWidget {
         PersistentBottomNavBarItem(
           icon: const Icon(
             Icons.chat_bubble_outline_outlined,
-            color: Color.fromRGBO(125, 132, 141, 1),
             size: 25,
           ),
+          activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
+          inactiveColorPrimary: const Color.fromRGBO(125, 132, 141, 1),
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(
             Icons.person_2_outlined,
-            color: Color.fromRGBO(125, 132, 141, 1),
             size: 30,
           ),
+          activeColorPrimary: const Color.fromRGBO(13, 110, 253, 1),
+          inactiveColorPrimary: const Color.fromRGBO(125, 132, 141, 1),
         ),
       ],
       screens: _buildScreens(),

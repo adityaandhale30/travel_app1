@@ -7,6 +7,7 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
@@ -44,6 +45,11 @@ class SearchScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
+              
+              onTap: () {
+                searchController.text = "";
+              },
+              controller: searchController,
               decoration: InputDecoration(
                 hintText: "Search Places",
                 hintStyle: GoogleFonts.poppins(
