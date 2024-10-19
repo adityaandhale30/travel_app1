@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/model/destination_model.dart';
-import 'package:travel_app/view/Destination/Widgets/bootom_container_view.dart';
+import 'package:travel_app/view/Destination/Widgets/bottom_container_view.dart';
 
 // ignore: must_be_immutable
 class DestinationView extends StatelessWidget {
@@ -161,6 +161,8 @@ class DestinationView extends StatelessWidget {
               ),
             ),
           ),
+
+          /// THE Container At the Bottom of Destination Page is Written In Following class
           BottomContainer(
             destinationCart: destinationCart,
           )
