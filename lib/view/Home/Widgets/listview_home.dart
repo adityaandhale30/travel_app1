@@ -1,4 +1,5 @@
 import 'package:avatar_stack/avatar_stack.dart';
+import 'package:avatar_stack/positions.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -150,7 +151,7 @@ class ListViewHome extends StatelessWidget {
                           height: 30,
                           width: 59,
                           child: AvatarStack(
-                           // settings: ,
+                            //settings: ,
                             height: 25, width: 30, avatars: [
                             for (var n = 1; n < 4; n++)
                               AssetImage('assets/images/avatar$n.png'),
@@ -168,3 +169,5 @@ class ListViewHome extends StatelessWidget {
     );
   }
 }
+
+
