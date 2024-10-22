@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                         child: Image.asset("assets/images/leonardo.png"),
                       ),
                       Text(
-                        "Leonardo",
+                        "Leonardo ",
                         style: GoogleFonts.poppins(
                           fontSize: screenWidth * 0.039,
                           fontWeight: FontWeight.w500,
