@@ -1,20 +1,4 @@
-// import 'package:flutter/material.dart';
 
-// class LoginScreen extends StatefulWidget {
-//   const LoginScreen({super.key});
-
-//   @override
-//   State<LoginScreen> createState() => _LoginScreenState();
-// }
-
-// class _LoginScreenState extends State<LoginScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-
-//     );
-//   }
-// }
 
 // ignore_for_file: avoid_print
 
@@ -99,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
-                    child: passWordfield("Password", _password),
+                    child: passWordfield(" Password", _password),
                   ),
                   //const SizedBox(height: 10),
                   const Padding(
