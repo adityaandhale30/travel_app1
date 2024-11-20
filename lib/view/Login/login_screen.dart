@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
-                    child: passWordfield(" Password", _password),
+                    child: passWordfield("Password", _password),
                   ),
                   //const SizedBox(height: 10),
                   const Padding(
