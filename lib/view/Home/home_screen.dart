@@ -11,11 +11,12 @@ class HomeScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 247, 249, 1),
       body: Padding(
         padding:
-            const EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 20),
+            const EdgeInsets.only(top: 60, left: 16, right: 18, bottom: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
